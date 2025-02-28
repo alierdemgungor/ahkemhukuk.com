@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHKEM HUKUK BÜROSU</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #1a2942;    /* Koyu Lacivert */
+            --primary: #233657;         /* Lacivert */
+            --secondary: #8b0f25;       /* Bordo */
+            --gold: #c6a45c;           /* Antik Altın */
+            --gold-light: #dfc086;     /* Açık Altın */
+            --dark-gray: #2c2c2c;      /* Koyu Gri */
+            --light-gray: #e8e6e3;     /* Açık Gri */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--light-gray);
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .navbar-glass {
+            backdrop-filter: blur(10px);
+            background: rgba(26, 41, 66, 0.95);
+            border-bottom: 1px solid rgba(198, 164, 92, 0.1);
+        }
+
+        .luxury-gradient {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+
+        .luxury-card {
+            background: linear-gradient(145deg, rgba(35, 54, 87, 0.95) 0%, rgba(26, 41, 66, 0.95) 100%);
+            border: 1px solid rgba(198, 164, 92, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .rich-hover {
+            transition: all 0.3s ease;
+        }
+
+        .rich-hover:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 32px rgba(198, 164, 92, 0.2);
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-gold-light {
+            color: var(--gold-light);
+        }
+
+        .bg-gold {
+            background-color: var(--gold);
+        }
+
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: var(--gold);
+            color: var(--primary-dark);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-success {
+            animation: fadeInOut 1.5s ease;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+        }
+
+        .notification {
+            animation: fadeInOut 2s ease;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        .copy-notification {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--gold);
+            color: var(--primary-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            animation: fadeInOut 2s ease forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(1rem); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-1rem); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s; /* Sayfa yüklendikten 0.5 saniye sonra başlar */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(1rem); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(1rem); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .animate-fade-out {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .animate-shimmer {
+            animation: shimmer 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar-glass fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="w-40">
+                    <img src="logo.png" alt="AHKEM HUKUK Logo" class="h-16">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gold hover:text-gold-light transition-colors duration-300">Ana Sayfa</a>
+                    <a href="#about" class="text-gold hover:text-gold-light transition-colors duration-300">Hakkımızda</a>
+                    <a href="#team" class="text-gold hover:text-gold-light transition-colors duration-300">Ekibimiz</a>
+                    <a href="#practice-areas" class="text-gold hover:text-gold-light transition-colors duration-300">Çalışma Alanlarımız</a>
+                    <a href="#contact" class="text-gold hover:text-gold-light transition-colors duration-300">İletişim</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gold" id="menuBtn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505664194779-8beaceb93744')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 luxury-gradient opacity-90"></div>
+        <div class="relative text-center space-y-12 container mx-auto px-12">
+            <h1 class="text-5xl lg:text-7xl font-serif tracking-wider text-gold">
+                AHKEM HUKUK BÜROSU
+            </h1>
+            <div class="space-y-4 text-xl lg:text-2xl text-gold-light font-light">
+                <p>Av. Adil ÇELİK</p>
+                <p>Av. Arb. Çağatay KORKMAZ</p>
+                <p>Av. Süleyman Fırat KÜLTOZATAN</p>
+            </div>
+            <p class="max-w-2xl mx-auto text-light-gray/80 text-sm lg:text-base leading-relaxed opacity-0 transform translate-y-4 animate-fade-in-up">
+                1992'den beri Balıkesir'de hukuk alanında öncü hizmetler sunan büromuz,<br>
+                müvekkillerimizin haklarını en üst düzeyde korumak için özenle <span class="text-xs lg:text-sm">çalışmaktadır.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Anasayfa section sonrası, Ekibimiz section öncesi -->
+    
+    <section id="about" class="py-24 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
+        <div class="container mx-auto px-6">
+            <br>
+            <br>
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Hakkımızda</h2>
+            
+            <!-- Arkaya şeffaf panel -->
+            <div class="relative overflow-hidden">
+                <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
+                
+                <div class="relative p-8">
+                    <div class="text-light-gray/80 text-lg leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
+                        <p>
+                            Ahkem Hukuk Bürosu, 1992'den beri Balıkesir'de, kurucu Avukat Adil Çelik, ortak Avukat Arabulucu Çağatay Korkmaz ve Avukat Süleyman Fırat Kültozatan'dan oluşan deneyimli ekibiyle, danışanlarının hukuki ihtiyaçlarını özenle karşılamak ve etkili çözümler sunmak amacıyla hizmet vermektedir. Müvekkillerine, güncel mevzuata uygun, güvenilir ve hızlı hukuki destek sunarak haklarını en iyi şekilde korumayı ilke edinmiştir.
+                        </p>
+                    </div>
+                    
+                    <!-- Logo alt kısımda -->
+                    <div class="flex justify-center mt-8">
+                        <img src="logo.png" alt="AHKEM HUKUK Logo" class="w-96 h-auto opacity-20">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-gradient-to-b from-primary to-primary-dark">
+        <div class="container mx-auto px-6">
+            <br>
+            <br>
+            <br>
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Ekibimiz</h2>
+            
+            <!-- Arkaya şeffaf panel -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
+                
+                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+                    <!-- Avukat Card 1 -->
+                    <div class="group">
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
+                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[175px] relative mb-6 pb-16 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Adil ÇELİK</h3>
+                                    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                </div>
+                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
+                                    Avukat Adil ÇELİK, 1968 Kocaavşar/Balıkesir doğumludur. İlk ve orta öğrenimini Kocaavşar'da, lise öğrenimini Balıkesir Muharrem Hasbi Lisesi'nde yapmıştır. 1989 yılında Dokuz Eylül Üniversitesi Hukuk Fakültesi'nden mezun olduktan sonra 1992 yılından bu yana Balıkesir'de serbest avukatlık görevini sürdürmektedir. Evli ve 3 çocuk babasıdır.
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
+                                        opacity-0 group-hover:opacity-100 transition-all duration-500 z-10">
+                                <div class="p-8 h-full">
+                                    <div class="h-full flex flex-col">
+                                        <div class="relative mb-6 pb-6 border-b border-gold/10">
+                                            <h4 class="text-2xl font-serif text-gold">Vekalet Bilgileri</h4>
+                                            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-user text-gold/60"></i>
+                                                        <span class="text-light-gray">Adil ÇELİK</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Adil ÇELİK')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-id-card text-gold/60"></i>
+                                                        <span class="text-light-gray">165 316 198 88</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('165 316 198 88')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-location-dot text-gold/60"></i>
+                                                        <span class="text-light-gray">Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avukat Card 2 -->
+                    <div class="group">
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
+                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[170px] relative mb-6 pb-14 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Arb. Çağatay KORKMAZ</h3>
+                                    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                </div>
+                                
+                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
+                                    Avukat Arabulucu Çağatay KORKMAZ, 1988 Erzurum doğumludur. İlk ve orta öğrenimini Erzurum'da, lise öğrenimini Erzurum Anadolu Lisesi'nde yapmıştır. 2014 senesinde Başkent Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. 2016 yılından bu yana Balıkesir'de serbest avukatlık yapmakta, 2023 senesinden bu yana Arabuluculuk görevini sürdürmektedir. Evlidir.
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
+                                        opacity-0 group-hover:opacity-100 transition-all duration-500 z-10">
+                                <div class="p-8 h-full">
+                                    <div class="h-full flex flex-col">
+                                        <div class="relative mb-6 pb-6 border-b border-gold/10">
+                                            <h4 class="text-2xl font-serif text-gold">Vekalet Bilgileri</h4>
+                                            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-user text-gold/60"></i>
+                                                        <span class="text-light-gray">Çağatay KORKMAZ</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Çağatay KORKMAZ')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-id-card text-gold/60"></i>
+                                                        <span class="text-light-gray">246 767 695 80</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('246 767 695 80')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-id-card text-gold/60"></i>
+                                                        <span class="text-light-gray">Kurtdereli V. D.</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Kurtdereli Vergi Dairesi')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-location-dot text-gold/60"></i>
+                                                        <span class="text-light-gray">Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avukat Card 3 -->
+                    <div class="group">
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
+                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[165px] relative mb-6 pb-12 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Süleyman Fırat KÜLTOZATAN</h3>
+                                    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                </div>
+                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
+                                    Avukat Süleyman Fırat KÜLTOZATAN, 1991 Balıkesir doğumludur. İlk ve orta öğrenimi ile lise öğretimini Balıkesir'de tamamlamıştır. 2010 senesinde Doğu Akdeniz Üniversitesi'ni kazanmıştır. Balıkesir Barosu bünyesinde avukatlık stajını tamamlamıştır. 2019 yılından itibaren Ahkem Hukuk Bürosu bünyesinde çalışmalarına devam etmektedir. Evlidir.
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
+                                        opacity-0 group-hover:opacity-100 transition-all duration-500 z-10">
+                                <div class="p-8 h-full">
+                                    <div class="h-full flex flex-col">
+                                        <div class="relative mb-6 pb-6 border-b border-gold/10">
+                                            <h4 class="text-2xl font-serif text-gold">Vekalet Bilgileri</h4>
+                                            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-user text-gold/60"></i>
+                                                        <span class="text-light-gray">Süleyman Fırat KÜLTOZATAN</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Süleyman Fırat KÜLTOZATAN')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-id-card text-gold/60"></i>
+                                                        <span class="text-light-gray">173 715 900 92</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('173 715 900 92')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white/[0.03] rounded-lg p-4 hover:bg-white/[0.05] transition-colors duration-300">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <i class="fas fa-location-dot text-gold/60"></i>
+                                                        <span class="text-light-gray">Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir</span>
+                                                    </div>
+                                                    <button onclick="copyToClipboard('Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir')" class="text-gold/40 hover:text-gold transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Çalışma Alanlarımız bölümü -->
+    <section id="practice-areas" class="py-24 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
+        <div class="container mx-auto px-6">
+            <br>
+            <br>
+            <br>
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Çalışma Alanlarımız</h2>
+            
+            <!-- Arkaya şeffaf panel -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
+                
+                <div class="relative p-8">
+                    <div class="text-light-gray/80 text-lg leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
+                        <p class="mb-8">
+                            Büromuz, geniş bir alanda hukuki danışmanlık ve avukatlık hizmeti vermektedir. Profesyonel ve çözüm odaklı yaklaşımımızla, müvekkillerimizin hukuki süreçlerini titizlikle yönetiyor ve en iyi sonucu elde etmeleri için çalışıyoruz.
+                        </p>
+                        <br>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                            <div>• Ceza Hukuku</div>
+                            <div>• Medeni Hukuk</div>
+                            <div>• Aile Hukuku</div>
+                            <div>• Miras Hukuku</div>
+                            <div>• İş Hukuku</div>
+                            <div>• Ticaret Hukuku</div>
+                            <div>• Sözleşmeler Hukuku</div>
+                            <div>• İcra ve İflas Hukuku</div>
+                            <div>• İdare Hukuku</div>
+                            <div>• Vergi Hukuku</div>
+                            <div>• Tüketici Hukuku</div>
+                            <div>• Gayrimenkul Hukuku</div>
+                            <div>• Sağlık Hukuku</div>
+                            <div>• Sigorta Hukuku</div>
+                            <div>• Fikri ve Sınai Mülkiyet Hukuku</div>
+                            <div>• Rekabet Hukuku</div>
+                            <div>• Bilişim Hukuku</div>
+                            <div>• Uluslararası Hukuk</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <!-- Arka plan logosu -->
+        <div class="absolute inset-0 flex items-center justify-center z-0 opacity-5">
+            <img src="logo.png" alt="AHKEM HUKUK Logo" class="max-w-2xl w-full h-auto">
+        </div>
+        
+        <!-- Mevcut içerik -->
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">İletişim</h2>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Sol Kolon: Form ve Telefon -->
+                <div class="luxury-card p-8 rounded-lg">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-gold font-serif text-2xl mb-4">Mesaj Formu</h3>
+                            <p class="text-light-gray/80 text-base mb-6">
+                                Lütfen mesajınızı aşağıdaki form aracılığıyla bizimle paylaşın. Ofisimiz, talebinizi en kısa sürede inceleyerek belirtilen e-posta adresi veya telefon numarası üzerinden sizinle iletişime geçecektir.
+                            </p>
+                        </div>
+
+                        <form class="space-y-6">
+                            <input type="email" 
+                                   placeholder="E-posta Adresiniz"
+                                   required
+                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                            <input type="tel" 
+                                   placeholder="Telefon Numaranız (İsteğe Bağlı)"
+                                   pattern="[0-9\s\-\+]+"
+                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                            <input type="text" 
+                                   placeholder="Adınız" 
+                                   required
+                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                            <textarea rows="4" 
+                                      placeholder="Mesajınız" 
+                                      required
+                                      class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                             text-light-gray placeholder-gold-light/50 focus:border-gold"></textarea>
+                            <button type="submit" 
+                                    class="w-full bg-gold text-primary-dark px-6 py-3 rounded-lg font-semibold 
+                                           hover:bg-gold-light transition-colors duration-300">
+                                Mesaj Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Harita ve Adres -->
+                <div class="space-y-12">
+                    <!-- Map container'ı form ile aynı hizada ve kare -->
+                    <div class="w-full max-w-[450px] aspect-square rounded-lg overflow-hidden bg-white/5 p-4">
+                        <div class="w-full h-full rounded-lg overflow-hidden">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.8901234567893!2d27.881303715441396!3d39.64652577946241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b7004bde7d2693%3A0x18dbda12be4d96b6!2sAhkem%20Hukuk%20B%C3%BCrosu!5e0!3m2!1str!2str!4v1679901234567!5m2!1str!2str"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen=""
+                                referrerpolicy="no-referrer-when-downgrade"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    
+
+                    <div class="bg-white/5 p-6 rounded-lg">
+                        <h3 class="text-gold font-serif text-2xl mb-4">Telefon</h3>
+                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
+                            <a href="tel:+902662439074" class="text-light-gray text-xl hover:text-gold transition-colors flex items-center gap-3">
+                                <i class="fas fa-phone text-gold/60"></i>
+                                <span>(0266) 243 90 74 - Ofis</span>
+                            </a>
+                            <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
+                               onclick="copyToClipboard('02662439074')"></i>
+                        </div>
+                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
+                            <a href="tel:+902662439074" class="text-light-gray text-xl hover:text-gold transition-colors flex items-center gap-3">
+                                <i class="fas fa-phone text-gold/60"></i>
+                                <span>(+90) 546 855 25 00 - GSM</span>
+                            </a>
+                            <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
+                               onclick="copyToClipboard('05468552500')"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/5 p-6 rounded-lg">
+                        <h3 class="text-gold font-serif text-2xl mb-4">Adres</h3>
+                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
+                            <a href="https://maps.google.com/maps?daddr=39.6465258,27.8834924" 
+                               target="_blank"
+                               class="text-light-gray hover:text-gold transition-colors flex items-center gap-3">
+                                <i class="fas fa-location-dot text-gold/60"></i>
+                                <span>Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir</span>
+                            </a>
+                            <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
+                               onclick="copyToClipboard('Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir')"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+905336077907?text=Merhaba%2C%20Ahkem%20Hukuk%20Bürosu'ndan%20randevu%20almak%20istiyorum." 
+       target="_blank"
+       class="fixed bottom-8 right-8 bg-gold text-primary-dark p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="fixed bottom-4 left-4 z-50">
+        <div id="toast" class="hidden bg-primary-dark text-gold px-6 py-3 rounded-lg shadow-lg border border-gold/20">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-check text-gold/60"></i>
+                <span class="text-sm font-medium">Kopyalandı</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark/80 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-6 md:space-y-0">
+                <!-- Sol: Logo ve Adres -->
+                <div class="flex items-center space-x-8">
+                    <img src="logo.png" alt="AHKEM HUKUK Logo" class="h-24 w-auto opacity-30">
+                    <div class="text-light-gray/5">
+                        <p>© 1992'den beri tüm hakları saklıdır.</p>
+                        <h3 class="text-gold font-serif text-xl mb-2">AHKEM HUKUK BÜROSU</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-primary-dark z-40 transform translate-x-full transition-transform duration-300 md:hidden';
+        mobileMenu.innerHTML = `
+            <div class="p-6 space-y-4">
+                <a href="#home" class="block text-gold hover:text-gold-light">Ana Sayfa</a>
+                <a href="#about" class="block text-gold hover:text-gold-light">Hakkımızda</a>
+                <a href="#team" class="block text-gold hover:text-gold-light">Ekibimiz</a>
+                <a href="#practice-areas" class="block text-gold hover:text-gold-light">Çalışma Alanlarımız</a>
+                <a href="#contact" class="block text-gold hover:text-gold-light">İletişim</a>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            document.body.appendChild(tooltip);
+
+            btn.addEventListener('mousemove', (e) => {
+                tooltip.style.opacity = '1';
+                tooltip.textContent = btn.dataset.tooltip;
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY + 10 + 'px';
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+            });
+
+            btn.addEventListener('click', async () => {
+                const textToCopy = btn.dataset.copy;
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    tooltip.textContent = 'Kopyalandı!';
+                    tooltip.classList.add('copy-success');
+                    setTimeout(() => {
+                        tooltip.classList.remove('copy-success');
+                        tooltip.textContent = btn.dataset.tooltip;
+                    }, 1500);
+                } catch (err) {
+                    tooltip.textContent = 'Kopyalama başarısız!';
+                }
+            });
+        });
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            toast.classList.add('animate-fade-in');
+            
+            setTimeout(() => {
+                toast.classList.add('animate-fade-out');
+                setTimeout(() => {
+                    toast.classList.remove('animate-fade-in', 'animate-fade-out');
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 2000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => showToast())
+                .catch(err => console.error('Kopyalama başarısız:', err));
+        }
+    </script>
+</body>
+</html>
