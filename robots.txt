@@ -1,3 +1,6 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /login/
 Allow: /
-Sitemap: https://www.ahkemhukuk.com/
+
+Sitemap: https://www.ahkemhukuk.com/sitemap.xml
