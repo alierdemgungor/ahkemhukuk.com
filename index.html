@@ -6,6 +6,7 @@
     <title>AHKEM HUKUK BÜROSU</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="description" content="Ahkem Hukuk Bürosu - 1992'den beri Balıkesir'de hukuki danışmanlık ve avukatlık hizmetleri">
     <meta name="keywords" content="ahkem hukuk, ahkem hukuk bürosu, balıkesir hukuk, balıkesir avukat, balıkesir hukuk bürosu, güvenilir hukuk bürosu, hukuk bürosu, avukat, Balıkesir, hukuki danışmanlık">
@@ -167,6 +168,10 @@
         .animate-shimmer {
             animation: shimmer 2s infinite;
         }
+
+        section {
+            scroll-margin-top: 4rem; /* 5rem→4rem */
+        }
     </style>
 </head>
 <body>
@@ -209,34 +214,32 @@
                 <p>Av. Süleyman Fırat KÜLTOZATAN</p>
             </div>
             <p class="max-w-2xl mx-auto text-light-gray/80 text-sm lg:text-base leading-relaxed opacity-0 transform translate-y-4 animate-fade-in-up">
-                1992'den beri Balıkesir'de hukuk alanında öncü hizmetler sunan büromuz,<br>
-                müvekkillerimizin haklarını en üst düzeyde korumak için özenle <span class="text-xs lg:text-sm">çalışmaktadır.</span>
+                1992'den beri Balıkesir'de hukuk alanında öncü hizmetler sunanarak,<br>
+                müvekkillerimizin haklarını en üst düzeyde korumak için özenle çalışıyoruz.
             </p>
         </div>
     </section>
-
     <!-- Anasayfa section sonrası, Ekibimiz section öncesi -->
     
-    <section id="about" class="py-24 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
-        <div class="container mx-auto px-6">
+    <section id="about" class="py-16 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
+        <div class="container mx-auto px-6 max-w-7xl">
             <br>
-            <br>
-            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Hakkımızda</h2>
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-12">Hakkımızda</h2>
             
-            <!-- Arkaya şeffaf panel -->
-            <div class="relative overflow-hidden">
-                <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
+            <div class="relative overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl"></div>
                 
                 <div class="relative p-8">
                     <div class="text-light-gray/80 text-lg leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
-                        <p>
-                            Ahkem Hukuk Bürosu, 1992'den beri Balıkesir'de, kurucu Avukat Adil Çelik, ortak Avukat Arabulucu Çağatay Korkmaz ve Avukat Süleyman Fırat Kültozatan'dan oluşan deneyimli ekibiyle, danışanlarının hukuki ihtiyaçlarını özenle karşılamak ve etkili çözümler sunmak amacıyla hizmet vermektedir. Müvekkillerine, güncel mevzuata uygun, güvenilir ve hızlı hukuki destek sunarak haklarını en iyi şekilde korumayı ilke edinmiştir.
+                        <p class="text-base lg:text-lg">
+                            Ahkem Hukuk Bürosu, 1992 senesinde kurucu Avukat Adil Çelik tarafından Balıkesir'de kurulmuştur. Ortak Avukat Arabulucu Çağatay Korkmaz ve Avukat Süleyman Fırat Kültozatan'dan oluşan deneyimli ekibiyle, danışanlarının hukuki ihtiyaçlarını özenle karşılamak ve etkili çözümler sunmak amacıyla hizmet vermektedir. Müvekkillerine, güncel mevzuata uygun, güvenilir ve hızlı hukuki destek sunarak haklarını en iyi şekilde korumayı ilke edinmiştir.
                         </p>
                     </div>
                     
-                    <!-- Logo alt kısımda -->
                     <div class="flex justify-center mt-8">
-                        <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="w-96 h-auto opacity-20">
+                        <img src="assets/images/logo.png" 
+                             alt="AHKEM HUKUK Logo" 
+                             class="w-auto h-32 lg:h-48 opacity-20">
                     </div>
                 </div>
             </div>
@@ -244,28 +247,26 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-24 bg-gradient-to-b from-primary to-primary-dark">
-        <div class="container mx-auto px-6">
-            <br>
-            <br>
-            <br>
-            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Ekibimiz</h2>
+    <section id="team" class="pt-16 pb-16 bg-gradient-to-b from-primary to-primary-dark">
+        <div class="container mx-auto px-4 lg:px-6 max-w-7xl">
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-1">Ekibimiz</h2>
             
-            <!-- Arkaya şeffaf panel -->
             <div class="relative">
                 <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
                 
-                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 p-4 lg:p-6 mb-8">
                     <!-- Avukat Card 1 -->
                     <div class="group">
-                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
-                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
-                                <div class="h-[175px] relative mb-6 pb-16 border-b border-gold/10 flex flex-col justify-end">
-                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Adil ÇELİK</h3>
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm 
+                                    shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[600px] overflow-hidden">
+                            <div class="h-full p-6 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[160px] relative mb-4 pb-12 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-1 text-center">Av. Adil ÇELİK</h3>
+                                    <p class="text-[#dfc086] text-lg font-['Dancing_Script'] text-center mb-4">Kurucu Avukat</p>
                                     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
                                 </div>
-                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
-                                    Avukat Adil ÇELİK, 1968 Kocaavşar/Balıkesir doğumludur. İlk ve orta öğrenimini Kocaavşar'da, lise öğrenimini Balıkesir Muharrem Hasbi Lisesi'nde yapmıştır. 1989 yılında Dokuz Eylül Üniversitesi Hukuk Fakültesi'nden mezun olduktan sonra 1992 yılından bu yana Balıkesir'de serbest avukatlık görevini sürdürmektedir. Evli ve 3 çocuk babasıdır.
+                                <div class="text-light-gray/80 text-sm lg:text-base leading-relaxed text-center">
+                                    Avukat Adil ÇELİK, 1968 Kocaavşar/Balıkesir doğumludur. İlk ve orta öğrenimini Kocaavşar'da, lise öğrenimini Balıkesir Muharrem Hasbi Lisesi'nde tamamlamıştır. 1989 yılında Dokuz Eylül Üniversitesi Hukuk Fakültesi'nden mezun olan ÇELİK, 1992 yılında Ahkem Hukuk'u kurarak avukatlık hizmetleri ve hukuki danışmanlık sağlamaya başlamıştır. 2018-2023 yılları arasında TBMM'de milletvekili olarak görev almıştır.
                                 </div>
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
@@ -319,15 +320,18 @@
 
                     <!-- Avukat Card 2 -->
                     <div class="group">
-                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
-                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
-                                <div class="h-[170px] relative mb-6 pb-14 border-b border-gold/10 flex flex-col justify-end">
-                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Arb. Çağatay KORKMAZ</h3>
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm 
+                                    shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[600px] overflow-hidden">
+                            <div class="h-full p-6 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[160px] relative mb-4 pb-12 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-1 text-center">Av. Arb. Çağatay KORKMAZ</h3>
+                                    <p class="text-[#dfc086] text-lg font-['Dancing_Script'] text-center mb-4">Ortak Avukat, Arabulucu</p>
                                     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
                                 </div>
                                 
-                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
-                                    Avukat Arabulucu Çağatay KORKMAZ, 1988 Erzurum doğumludur. İlk ve orta öğrenimini Erzurum'da, lise öğrenimini Erzurum Anadolu Lisesi'nde yapmıştır. 2014 senesinde Başkent Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. 2016 yılından bu yana Balıkesir'de serbest avukatlık yapmakta, 2023 senesinden bu yana Arabuluculuk görevini sürdürmektedir. Evlidir.
+                                <div class="text-light-gray/80 text-sm lg:text-base leading-relaxed text-center">
+                                    Avukat Arabulucu Çağatay KORKMAZ, 1988 Erzurum doğumludur. İlk ve orta öğrenimini Erzurum'da, lise öğrenimini Erzurum Anadolu Lisesi'nde yapmıştır. 2014 senesinde Başkent Üniversitesi Hukuk Fakültesi'nden mezun olmuştur. 2016 yılından bu yana Ahkem Hukuk bünyesinde avukatlık hizmetleri ve hukuki danışmanlık veren KORKMAZ, 2023 yılı itibariyle Arabuluculuk unvanını kazanarak taraflar arasında uzlaştırıcı çözümler sunmaya da başlamıştır.                                
+                                
                                 </div>
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
@@ -392,14 +396,16 @@
 
                     <!-- Avukat Card 3 -->
                     <div class="group">
-                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[650px] overflow-hidden">
-                            <div class="h-full p-8 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
-                                <div class="h-[165px] relative mb-6 pb-12 border-b border-gold/10 flex flex-col justify-end">
-                                    <h3 class="text-2xl font-serif text-gold mb-6 text-center">Av. Süleyman Fırat KÜLTOZATAN</h3>
+                        <div class="relative bg-gradient-to-b from-white/[0.05] to-transparent rounded-xl backdrop-blur-sm 
+                                    shadow-[0_0_25px_-5px] shadow-black/10 transition-all duration-300 h-[600px] overflow-hidden">
+                            <div class="h-full p-6 flex flex-col opacity-100 group-hover:opacity-0 transition-all duration-500">
+                                <div class="h-[160px] relative mb-4 pb-12 border-b border-gold/10 flex flex-col justify-end">
+                                    <h3 class="text-2xl font-serif text-gold mb-1 text-center">Av. S. Fırat KÜLTOZATAN</h3>
+                                    <p class="text-[#dfc086] text-lg font-['Dancing_Script'] text-center mb-4">Avukat</p>
                                     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"></div>
                                 </div>
-                                <div class="text-light-gray/80 text-base leading-relaxed text-center">
-                                    Avukat Süleyman Fırat KÜLTOZATAN, 1991 Balıkesir doğumludur. İlk ve orta öğrenimi ile lise öğretimini Balıkesir'de tamamlamıştır. 2010 senesinde Doğu Akdeniz Üniversitesi'ni kazanmıştır. Balıkesir Barosu bünyesinde avukatlık stajını tamamlamıştır. 2019 yılından itibaren Ahkem Hukuk Bürosu bünyesinde çalışmalarına devam etmektedir. Evlidir.
+                                <div class="text-light-gray/80 text-sm lg:text-base leading-relaxed text-center">
+                                    Avukat Süleyman Fırat KÜLTOZATAN, 1991 Balıkesir doğumludur. İlk, orta ve lise öğrenimini Balıkesir'de tamamlayan KÜLTOZATAN, 2019 yılında Doğu Akdeniz Üniversitesi Hukuk Fakültesi'ni başarıyla tamamlamıştır. Aynı yıl itibariyle Ahkem Hukuk bünyesinde hukuki danışmanlık ve avukatlık hizmetleri de sunmaya başlamıştır.
                                 </div>
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary-dark/95 
@@ -456,43 +462,39 @@
     </section>
 
     <!-- Çalışma Alanlarımız bölümü -->
-    <section id="practice-areas" class="py-24 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
-        <div class="container mx-auto px-6">
+    <section id="practice-areas" class="py-16 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
+        <div class="container mx-auto px-6 max-w-7xl">
             <br>
-            <br>
-            <br>
-            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">Çalışma Alanlarımız</h2>
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-12">Çalışma Alanlarımız</h2>
             
-            <!-- Arkaya şeffaf panel -->
             <div class="relative">
                 <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-2xl"></div>
                 
-                <div class="relative p-8">
-                    <div class="text-light-gray/80 text-lg leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
-                        <p class="mb-8">
+                <div class="relative p-4 lg:p-6">
+                    <div class="text-light-gray/80 text-base lg:text-lg leading-relaxed space-y-4 text-center max-w-4xl mx-auto">
+                        <p class="mb-6">
                             Büromuz, geniş bir alanda hukuki danışmanlık ve avukatlık hizmeti vermektedir. Profesyonel ve çözüm odaklı yaklaşımımızla, müvekkillerimizin hukuki süreçlerini titizlikle yönetiyor ve en iyi sonucu elde etmeleri için çalışıyoruz.
                         </p>
                         <br>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-                            <div>• Ceza Hukuku</div>
-                            <div>• Medeni Hukuk</div>
-                            <div>• Aile Hukuku</div>
-                            <div>• Miras Hukuku</div>
-                            <div>• İş Hukuku</div>
-                            <div>• Ticaret Hukuku</div>
-                            <div>• Sözleşmeler Hukuku</div>
-                            <div>• İcra ve İflas Hukuku</div>
-                            <div>• İdare Hukuku</div>
-                            <div>• Vergi Hukuku</div>
-                            <div>• Tüketici Hukuku</div>
-                            <div>• Gayrimenkul Hukuku</div>
-                            <div>• Sağlık Hukuku</div>
-                            <div>• Sigorta Hukuku</div>
-                            <div>• Fikri ve Sınai Mülkiyet Hukuku</div>
-                            <div>• Rekabet Hukuku</div>
-                            <div>• Bilişim Hukuku</div>
-                            <div>• Uluslararası Hukuk</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 text-left px-2">
+                            <div class="p-1 text-sm lg:text-base">• Ceza Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Deniz Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Aile Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Miras Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• İş Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Ticaret Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Sözleşmeler Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• İcra ve İflas Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• İdare Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Vergi Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Tüketici Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Gayrimenkul Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Sağlık Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Sigorta Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Fikri ve Sınai Mülkiyet Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Rekabet Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Bilişim Hukuku</div>
+                            <div class="p-1 text-sm lg:text-base">• Uluslararası Hukuk</div>
                         </div>
                     </div>
                 </div>
@@ -501,61 +503,58 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 relative">
-        <!-- Arka plan logosu -->
+    <section id="contact" class="pt-20 pb-16 relative">
         <div class="absolute inset-0 flex items-center justify-center z-0 opacity-5">
-            <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="max-w-2xl w-full h-auto">
+            <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="max-w-lg w-full h-auto">
         </div>
         
-        <!-- Mevcut içerik -->
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-16">İletişim</h2>
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Sol Kolon: Form ve Telefon -->
-                <div class="luxury-card p-8 rounded-lg">
-                    <div class="space-y-8">
+        <div class="container mx-auto px-4 lg:px-6 max-w-7xl relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-6">İletişim</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Sol Kolon: Form -->
+                <div class="luxury-card p-6 rounded-lg mb-8">
+                    <div class="space-y-4">
                         <div>
-                            <h3 class="text-gold font-serif text-2xl mb-4">Mesaj Formu</h3>
-                            <p class="text-light-gray/80 text-base mb-6">
-                                Lütfen mesajınızı aşağıdaki form aracılığıyla bizimle paylaşın. Ofisimiz, talebinizi en kısa sürede inceleyerek belirtilen e-posta adresi veya telefon numarası üzerinden sizinle iletişime geçecektir.
+                            <h3 class="text-gold font-serif text-lg lg:text-xl mb-4">Mesaj Formu</h3>
+                            <p class="text-light-gray/80 text-sm mb-4">
+                                Lütfen mesajınızı aşağıdaki form aracılığıyla bizimle paylaşın. Ofisimiz, talebinizi en kısa sürede inceleyerek sizinle iletişime geçecektir.
                             </p>
                         </div>
 
-                        <form class="space-y-6">
+                        <form class="space-y-4">
                             <input type="email" 
                                    placeholder="E-posta Adresiniz"
                                    required
-                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
-                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <input type="tel" 
                                    placeholder="Telefon Numaranız (İsteğe Bağlı)"
                                    pattern="[0-9\s\-\+]+"
-                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
-                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <input type="text" 
                                    placeholder="Adınız Soyadınız" 
                                    required
-                                   class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
-                                          text-light-gray placeholder-gold-light/50 focus:border-gold">
+                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                          text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <textarea rows="4" 
                                       placeholder="Mesajınız" 
                                       required
-                                      class="w-full px-4 py-3 bg-primary-dark/50 border border-gold/20 rounded-lg 
-                                             text-light-gray placeholder-gold-light/50 focus:border-gold"></textarea>
+                                      class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                             text-light-gray placeholder-gold-light/50 focus:border-gold text-sm"></textarea>
                             <button type="submit" 
-                                    class="w-full bg-gold text-primary-dark px-6 py-3 rounded-lg font-semibold 
+                                    class="w-full bg-gold text-primary-dark px-4 py-2 rounded-lg font-semibold text-sm
                                            hover:bg-gold-light transition-colors duration-300">
                                 Mesaj Gönder
                             </button>
                         </form>
                     </div>
-                    
                 </div>
 
-                <!-- Sağ Kolon: Harita ve Adres -->
-                <div class="space-y-12">
-                    <!-- Map container'ı form ile aynı hizada ve kare -->
-                    <div class="w-full max-w-[450px] aspect-square rounded-lg overflow-hidden bg-white/5 p-4">
+                <!-- Sağ Kolon: Harita ve İletişim -->
+                <div class="space-y-6 mb-8">
+                    <!-- Map container -->
+                    <div class="w-full max-w-[400px] aspect-square rounded-lg overflow-hidden bg-white/5 p-2">
                         <div class="w-full h-full rounded-lg overflow-hidden">
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.8901234567893!2d27.881303715441396!3d39.64652577946241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b7004bde7d2693%3A0x18dbda12be4d96b6!2sAhkem%20Hukuk%20B%C3%BCrosu!5e0!3m2!1str!2str!4v1679901234567!5m2!1str!2str"
@@ -563,39 +562,39 @@
                                 height="100%" 
                                 style="border:0;" 
                                 allowfullscreen=""
-                                referrerpolicy="no-referrer-when-downgrade"
                                 loading="lazy">
                             </iframe>
                         </div>
                     </div>
-                    
 
-                    <div class="bg-white/5 p-6 rounded-lg">
-                        <h3 class="text-gold font-serif text-2xl mb-4">Telefon</h3>
-                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
-                            <a href="tel:+902662439074" class="text-light-gray text-xl hover:text-gold transition-colors flex items-center gap-3">
-                                <i class="fas fa-phone text-gold/60"></i>
-                                <span>(0266) 243 90 74 - Ofis</span>
-                            </a>
-                            <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
-                               onclick="copyToClipboard('02662439074')"></i>
-                        </div>
-                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
-                            <a href="tel:+902662439074" class="text-light-gray text-xl hover:text-gold transition-colors flex items-center gap-3">
-                                <i class="fas fa-phone text-gold/60"></i>
-                                <span>(+90) 546 855 25 00 - GSM</span>
-                            </a>
-                            <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
-                               onclick="copyToClipboard('05468552500')"></i>
+                    <div class="bg-white/5 p-3 rounded-lg">
+                        <h3 class="text-gold font-serif text-lg lg:text-xl mb-2">Telefon</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between bg-primary/40 p-3 rounded-lg">
+                                <a href="tel:+902662439074" class="text-light-gray text-sm hover:text-gold transition-colors flex items-center gap-3">
+                                    <i class="fas fa-phone text-gold/60"></i>
+                                    <span>(0266) 243 90 74 - Ofis</span>
+                                </a>
+                                <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
+                                   onclick="copyToClipboard('02662439074')"></i>
+                            </div>
+                            <div class="flex items-center justify-between bg-primary/40 p-3 rounded-lg">
+                                <a href="tel:+905468552500" class="text-light-gray text-sm hover:text-gold transition-colors flex items-center gap-3">
+                                    <i class="fas fa-phone text-gold/60"></i>
+                                    <span>(+90) 546 855 25 00 - GSM</span>
+                                </a>
+                                <i class="fas fa-copy text-gold/40 hover:text-gold cursor-pointer transition-colors" 
+                                   onclick="copyToClipboard('05468552500')"></i>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bg-white/5 p-6 rounded-lg">
-                        <h3 class="text-gold font-serif text-2xl mb-4">Adres</h3>
-                        <div class="flex items-center justify-between bg-primary/40 p-4 rounded-lg group/item">
+                    <div class="bg-white/5 p-3 rounded-lg">
+                        <h3 class="text-gold font-serif text-lg lg:text-xl mb-2">Adres</h3>
+                        <div class="flex items-center justify-between bg-primary/40 p-3 rounded-lg">
                             <a href="https://maps.google.com/maps?daddr=39.6465258,27.8834924" 
                                target="_blank"
-                               class="text-light-gray hover:text-gold transition-colors flex items-center gap-3">
+                               class="text-light-gray text-sm hover:text-gold transition-colors flex items-center gap-3">
                                 <i class="fas fa-location-dot text-gold/60"></i>
                                 <span>Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir</span>
                             </a>
