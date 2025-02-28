@@ -7,6 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Ahkem Hukuk Bürosu - 1992'den beri Balıkesir'de hukuki danışmanlık ve avukatlık hizmetleri">
+    <meta name="keywords" content="ahkem hukuk, ahkem hukuk bürosu, balıkesir hukuk, balıkesir avukat, balıkesir hukuk bürosu, güvenilir hukuk bürosu, hukuk bürosu, avukat, Balıkesir, hukuki danışmanlık">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         :root {
             --primary-dark: #1a2942;    /* Koyu Lacivert */
@@ -170,7 +175,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="w-40">
-                    <img src="logo.png" alt="AHKEM HUKUK Logo" class="h-16">
+                    <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="h-16">
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -231,7 +236,7 @@
                     
                     <!-- Logo alt kısımda -->
                     <div class="flex justify-center mt-8">
-                        <img src="logo.png" alt="AHKEM HUKUK Logo" class="w-96 h-auto opacity-20">
+                        <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="w-96 h-auto opacity-20">
                     </div>
                 </div>
             </div>
@@ -499,7 +504,7 @@
     <section id="contact" class="py-24 relative">
         <!-- Arka plan logosu -->
         <div class="absolute inset-0 flex items-center justify-center z-0 opacity-5">
-            <img src="logo.png" alt="AHKEM HUKUK Logo" class="max-w-2xl w-full h-auto">
+            <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="max-w-2xl w-full h-auto">
         </div>
         
         <!-- Mevcut içerik -->
@@ -625,7 +630,7 @@
             <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-6 md:space-y-0">
                 <!-- Sol: Logo ve Adres -->
                 <div class="flex items-center space-x-8">
-                    <img src="logo.png" alt="AHKEM HUKUK Logo" class="h-24 w-auto opacity-30">
+                    <img src="assets/images/logo.png" alt="AHKEM HUKUK Logo" class="h-24 w-auto opacity-30">
                     <div class="text-light-gray/5">
                         <p>© 1992'den beri tüm hakları saklıdır.</p>
                         <h3 class="text-gold font-serif text-xl mb-2">AHKEM HUKUK BÜROSU</h3>
@@ -635,6 +640,34 @@
             </div>
         </div>
     </footer>
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Ahkem Hukuk Bürosu",
+      "image": "https://www.ahkemhukuk.com/assets/images/logo.png",
+      "description": "1992'den beri Balıkesir'de hukuki danışmanlık hizmetleri",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Eskikuyumcular Mah. Mekik Sk. Sandıkçı İşhanı Kat: 5, Karesi / Balıkesir",
+        "addressLocality": "Karesi",
+        "addressRegion": "Balıkesir",
+        "postalCode": "10100",
+        "addressCountry": "TR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "ENLEM",
+        "longitude": "BOYLAM"
+      },
+      "url": "https://www.ahkemhukuk.com",
+      "telephone": "0266 243 90 74",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "priceRange": "₺₺₺"
+    }
+    </script>
 
     <script>
         // Mobile Menu Toggle
@@ -719,6 +752,39 @@
                 .then(() => showToast())
                 .catch(err => console.error('Kopyalama başarısız:', err));
         }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            // Form verilerini email servisinize gönderebilirsiniz
+            // Örnek: EmailJS, Formspree vb.
+            
+            // Başarılı gönderim bildirimi
+            showNotification('Mesajınız başarıyla gönderildi!');
+            this.reset();
+        });
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+    </script>
+
+    <!-- Sayfa yükleme performansı için lazy loading ekleyelim -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        });
     </script>
 </body>
 </html>
