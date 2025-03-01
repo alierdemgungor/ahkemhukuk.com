@@ -17,7 +17,7 @@
     <style>
         :root {
             --primary-dark: #1a2942;    /* Koyu Lacivert */
-            --primary: #233657;         /* Lacivert */
+            --primary: #1a2942;         /* Lacivert */
             --secondary: #8b0f25;       /* Bordo */
             --gold: #c6a45c;           /* Antik Altın */
             --gold-light: #dfc086;     /* Açık Altın */
@@ -173,6 +173,60 @@
         section {
             scroll-margin-top: 4rem; /* 5rem→4rem */
         }
+
+        .header-link {
+            position: relative;
+            text-decoration: none;
+            color: #c6a45c; /* Bağlantı rengi */
+            transition: color 0.3s ease;
+        }
+
+        .header-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px; /* Alt çizgi konumu */
+            height: 2px; /* Alt çizgi kalınlığı */
+            background: #c6a45c; /* Alt çizgi rengi */
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: #dfc086; /* Üzerine gelindiğinde yazı rengi */
+        }
+
+        .header-link:hover::after {
+            transform: scaleX(1); /* Alt çizgi görünür hale gelir */
+        }
+
+        .menu-link {
+            position: relative;
+            text-decoration: none;
+            color: #c6a45c; /* Bağlantı rengi */
+            transition: color 0.3s ease;
+        }
+
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px; /* Alt çizgi konumu */
+            height: 2px; /* Alt çizgi kalınlığı */
+            background: #c6a45c; /* Alt çizgi rengi */
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-link:hover {
+            color: #dfc086; /* Üzerine gelindiğinde yazı rengi */
+        }
+
+        .menu-link:hover::after {
+            transform: scaleX(1); /* Alt çizgi görünür hale gelir */
+        }
     </style>
 </head>
 <body>
@@ -186,11 +240,11 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gold hover:text-gold-light transition-colors duration-300">Ana Sayfa</a>
-                    <a href="#about" class="text-gold hover:text-gold-light transition-colors duration-300">Hakkımızda</a>
-                    <a href="#team" class="text-gold hover:text-gold-light transition-colors duration-300">Ekibimiz</a>
-                    <a href="#practice-areas" class="text-gold hover:text-gold-light transition-colors duration-300">Çalışma Alanlarımız</a>
-                    <a href="#contact" class="text-gold hover:text-gold-light transition-colors duration-300">İletişim</a>
+                    <a href="#home" class="menu-link">Ana Sayfa</a>
+                    <a href="#about" class="menu-link">Hakkımızda</a>
+                    <a href="#team" class="menu-link">Ekibimiz</a>
+                    <a href="#practice-areas" class="menu-link">Çalışma Alanlarımız</a>
+                    <a href="#contact" class="menu-link">İletişim</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -222,21 +276,20 @@
     </section>
     <!-- Anasayfa section sonrası, Ekibimiz section öncesi - About us section -->
     
-    <section id="about" class="py-16 bg-gradient-to-b from-primary to-primary-dark min-h-screen">
+    <section id="about" class="py-16 bg-gradient-to-b from-primary to-transparent min-h-screen">
         <div class="container mx-auto px-6 max-w-7xl">
-            <br>
             <h2 class="text-4xl lg:text-5xl font-serif text-gold text-center mb-12">Hakkımızda</h2>
-            
             <div class="relative overflow-hidden rounded-2xl">
                 <div class="absolute inset-0 bg-white/[0.02] backdrop-blur-xl"></div>
                 
                 <div class="relative p-8">
                     <div class="text-light-gray/80 text-lg leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
                         <p class="text-base lg:text-lg">
-                            Ahkem Hukuk Bürosu, 1992 senesinde Avukat Adil Çelik tarafından Balıkesir'de kurulmuştur. Avukat Arabulucu Çağatay Korkmaz ve Avukat Süleyman Fırat Kültozatan'dan oluşan deneyimli ekibiyle, danışanlarının hukuki ihtiyaçlarını özenle karşılamak ve etkili çözümler sunmak amacıyla hizmet vermektedir. Müvekkillerine, güncel mevzuata uygun, güvenilir ve hızlı hukuki destek sunarak haklarını en iyi şekilde korumayı ilke edinmiştir.
+                            Ahkem Hukuk Bürosu, 1992 senesinde Avukat Adil Çelik tarafından Balıkesir'de kurulmuştur. Avukat & Arabulucu Çağatay Korkmaz ve Avukat Süleyman Fırat Kültozatan'dan oluşan deneyimli ekibiyle, danışanlarının hukuki ihtiyaçlarını özenle karşılamak ve etkili çözümler sunmak amacıyla hizmet vermektedir. Müvekkillerine, güncel mevzuata uygun, güvenilir ve hızlı hukuki destek sunarak haklarını en iyi şekilde korumayı ilke edinmiştir.
                         </p>
                     </div>
-                    
+                    <br>
+                    <br>
                     <div class="flex justify-center mt-8">
                         <img src="assets/images/logo.png" 
                              alt="AHKEM HUKUK Logo" 
@@ -535,22 +588,22 @@
                             <input type="email" 
                                    placeholder="E-posta Adresiniz"
                                    required
-                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                   class="w-full px-4 py-2 bg-primary-dark border border-gold/20 rounded-lg 
                                           text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <input type="tel" 
                                    placeholder="Telefon Numaranız (İsteğe Bağlı)"
                                    pattern="[0-9\s\-\+]+"
-                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                   class="w-full px-4 py-2 bg-primary-dark border border-gold/20 rounded-lg 
                                           text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <input type="text" 
                                    placeholder="Adınız Soyadınız" 
                                    required
-                                   class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                   class="w-full px-4 py-2 bg-primary-dark border border-gold/20 rounded-lg 
                                           text-light-gray placeholder-gold-light/50 focus:border-gold text-sm">
                             <textarea rows="4" 
                                       placeholder="Mesajınız" 
                                       required
-                                      class="w-full px-4 py-2 bg-primary-dark/50 border border-gold/20 rounded-lg 
+                                      class="w-full px-4 py-2 bg-primary-dark border border-gold/20 rounded-lg 
                                              text-light-gray placeholder-gold-light/50 focus:border-gold text-sm"></textarea>
                             <button type="submit" 
                                     class="w-full bg-gold text-primary-dark px-4 py-2 rounded-lg font-semibold text-sm
@@ -618,10 +671,10 @@
     </section>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+905336077907?text=Merhaba%2C%20Ahkem%20Hukuk%20B%C3%BCrosu'ndan%20randevu%20almak%20istiyorum." 
+    <a href="https://wa.me/+905468552500?text=Merhaba%2C%20Ahkem%20Hukuk%20B%C3%BCrosu'ndan%20randevu%20almak%20istiyorum." 
        target="_blank"
        class="fixed bottom-8 right-8 bg-gold text-primary-dark p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50">
-        <i class="fab fa-whatsapp text-2xl"></i>
+        <i class="fab fa-whatsapp text-2xl transition-transform transform hover:scale-125"></i>
     </a>
 
     <!-- Toast container -->
